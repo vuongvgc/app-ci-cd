@@ -4,7 +4,7 @@ import ContextQuote from '../../Context';
 import { colorsArray, randomNumber } from '../../utilities';
 import { IButton } from '../QuoteMachine/interface';
 
-const Footer: React.FC<IButton> = ({ setIsRandomQuote }) => {
+const Footer: React.FC<IButton> = ({ setIsRandomQuote, isRandomQuote }) => {
   const { color, setColor } = useContext(ContextQuote);
   return (
     <div className="footer__box">
@@ -33,7 +33,7 @@ const Footer: React.FC<IButton> = ({ setIsRandomQuote }) => {
         style={{ backgroundColor: color }}
         id="new-quote"
         onClick={() => {
-          setIsRandomQuote(true);
+          setIsRandomQuote(!isRandomQuote);
           setColor(colorsArray[randomNumber(0, colorsArray.length - 1)]);
         }}
       >

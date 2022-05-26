@@ -17,4 +17,5 @@ export interface IQuoteAuthor {
 }
 export interface IButton {
   setIsRandomQuote: React.Dispatch<React.SetStateAction<boolean>>;
+  isRandomQuote: boolean;
 }

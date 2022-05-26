@@ -12,23 +12,23 @@ const QuoteMachine: React.FC = () => {
   const [isRandomQuote, setIsRandomQuote] = useState(false);
   const { color } = useContext(ContextQuote);
   useEffect(() => {
-    if (isRandomQuote) {
-      fetch("https://api.quotable.io/random")
-        .then((rs) => {
-          return rs.json();
-        })
-        .then((data) => {
-          setQuote(data);
-        })
-        .finally(() => setIsRandomQuote(false));
-    }
+    fetch("https://api.quotable.io/random")
+      .then((rs) => {
+        return rs.json();
+      })
+      .then((data) => {
+        setQuote(data);
+      });
   }, [isRandomQuote]);
 
   return (
     <div id="quote-box" style={{ color: color }}>
       <QuoteText text={quote ? quote.content : ""} />
       <QuoteAuthor author={quote ? quote.author : ""} />
-      <Footer setIsRandomQuote={setIsRandomQuote} />
+      <Footer
+        setIsRandomQuote={setIsRandomQuote}
+        isRandomQuote={isRandomQuote}
+      />
     </div>
   );
 };
