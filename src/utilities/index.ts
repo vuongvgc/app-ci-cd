@@ -16,3 +16,13 @@ export const colorsArray: string[] = [
   "#77B1A9",
   "#73A857",
 ];
+
+export const getDataQuote = () => {
+  return fetch("https://api.quotable.io/random")
+    .then((rs) => {
+      return rs.json();
+    })
+    .then((data) => {
+      return data;
+    });
+};

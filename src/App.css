@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all .5s;
 }
 #quote-box {
   border-radius: 3px;
@@ -13,6 +14,7 @@
   padding: 40px 50px;
   display: table;
   background-color: #fff;
+  
 }
 #text {
   text-align: center;
@@ -21,10 +23,13 @@
   clear: both;
   font-weight: 500;
   font-size: 1.75em;
+  transition: all .5s;
+
 }
 #text i {
   font-size: 1em;
   margin-right: 0.4em;
+  transition: all .5s;
  
 }
 #author {
@@ -34,6 +39,8 @@
   padding-top: 20px;
   font-size: 1em;
   text-align: right;
+  transition: all .5s;
+
 }
 
 .button {
@@ -48,7 +55,7 @@
   margin-top: 30px;
   opacity: 1;
   cursor: pointer;
-  
+  transition: all .5s;
   
 }
 .button:hover {
@@ -64,6 +71,8 @@
     margin-right: 5px;
     height: 30px;
     width: 40px;
+    transition: all .5s;
+
   }
 .button#new-quote {
     float: right;

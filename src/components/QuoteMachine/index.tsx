@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import ContextQuote from '../../Context';
-import { randomNumber } from '../../utilities';
+import { getDataQuote, randomNumber } from '../../utilities';
 import Footer from '../Footer';
 import QuoteAuthor from '../QuoteAuthor';
 import QuoteText from '../QuoteText';
@@ -12,13 +12,7 @@ const QuoteMachine: React.FC = () => {
   const [isRandomQuote, setIsRandomQuote] = useState(false);
   const { color } = useContext(ContextQuote);
   useEffect(() => {
-    fetch("https://api.quotable.io/random")
-      .then((rs) => {
-        return rs.json();
-      })
-      .then((data) => {
-        setQuote(data);
-      });
+    getDataQuote().then((data) => setQuote(data));
   }, [isRandomQuote]);
 
   return (
