@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import React, { useState } from 'react';
+
+import QuoteMachine from './components/QuoteMachine';
+import ContextQuote from './Context';
+
+const App = () => {
+  const [color, setColor] = useState<string>("#16a085");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextQuote.Provider
+      value={{
+        color: color,
+        setColor: (newColor: string) => setColor(newColor),
+      }}
+    >
+      <div id="wrapper" style={{ backgroundColor: color }}>
+        <QuoteMachine />
+      </div>
+    </ContextQuote.Provider>
   );
-}
+};
 
 export default App;
